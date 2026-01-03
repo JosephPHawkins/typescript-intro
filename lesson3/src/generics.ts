@@ -12,6 +12,8 @@ function identity <t> (val: t) : t {
 }
 // t works for any type, person, number, even made up types like person 
 
+//<t>
+
 interface Person {
     name: string,
     age: number 
@@ -41,3 +43,36 @@ function identityAny (val: any) : any {
 
 identityAny(2).UpperCase() // ts wouldnt say
 //  a error wouldnt 
+
+
+function getToSearchItems<T>(item: T[], index : number): T | undefined{
+    
+   return item[index]
+    
+     
+}   
+
+
+interface thing1 extends thing2 {
+    color: string
+    shape: string
+}
+
+interface thing2 {
+    height: number
+    width: number
+}
+
+function anotherFunctino<T, U extends number>(valOne: T, valTwo: U): object {
+    return {valOne, valTwo}
+}
+
+
+const JosephThing : thing1 = {
+    color: 'red', 
+    shape: 'round',
+    height: 12,
+    width: 12
+}
+anotherFunctino(JosephThing, 2)
+
